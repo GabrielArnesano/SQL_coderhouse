@@ -39,6 +39,8 @@ for nombre in drc.nombres_proyectos_tecnologicos:
 with open('C:\\Users\\arsan\\OneDrive\\Documents\\queries_consultora\\query_proyecto.sql', 'w', encoding = 'utf8') as f:
    f.write(query_proyecto)
 
+# vamos a generar las queries para insertar datos en la tabla equipo: 
+
 query_equipo = ''
 id_equipo_list = []
 
@@ -48,6 +50,8 @@ for nombre in drc.nombres_equipos:
     id_equipo_list.append(id_equipo)
 with open('C:\\Users\\arsan\\OneDrive\\Documents\\queries_consultora\\query_equipo.sql', 'w', encoding = 'utf8') as f:
    f.write(query_equipo)
+
+# vamos a generar las queries para insertar datos en la tabla empleado: 
 
 query_empleado = ''
 id_empleado_list = []
@@ -59,6 +63,8 @@ for nombre in drc.nombres_personas_random:
 with open('C:\\Users\\arsan\\OneDrive\\Documents\\queries_consultora\\query_empleado.sql', 'w', encoding = 'utf8') as f:
    f.write(query_empleado)
 
+# vamos a generar las queries para insertar datos en la tabla tecnologia:
+
 query_tecnologia = ''
 id_tecnologia_list = []
 for nombre in drc.tecnologias_programacion:
@@ -69,12 +75,16 @@ for nombre in drc.tecnologias_programacion:
 with open('C:\\Users\\arsan\\OneDrive\\Documents\\queries_consultora\\query_tecnologia.sql', 'w', encoding = 'utf8') as f:
    f.write(query_tecnologia)
 
+# vamos a generar las queries para insertar datos en la tabla puente proyecto por cliente:
+
 query_proyecto_por_cliente = ''   # relación uno a uno entre cliente y proyecto
 for n,id_cliente in enumerate(cuil_cuit_list):
     query_proyecto_por_cliente += f"USE consultora;\nINSERT INTO proyectos_por_cliente(cuil_cuit, id_proyecto) VALUES ({id_cliente}, '{id_proyecto_list[n]}');\n"
 
 with open('C:\\Users\\arsan\\OneDrive\\Documents\\queries_consultora\\query_proyecto_por_cliente.sql', 'w', encoding = 'utf8') as f:
    f.write(query_proyecto_por_cliente)
+
+# vamos a generar las queries para insertar datos en la tabla puente proyecto por equipo
 
 query_proyectos_por_equipo = ''   # relacion muchos a muchos entre proyecto y equipo
 
@@ -85,6 +95,8 @@ for id_proyecto in id_proyecto_list:
 with open('C:\\Users\\arsan\\OneDrive\\Documents\\queries_consultora\\query_proyectos_por_equipo.sql', 'w', encoding = 'utf8') as f:
     f.write(query_proyectos_por_equipo)
 
+# vamos a generar las queries para insertar datos en la tabla puente empleados por equipo:
+
 query_empleados_por_equipo = ''   # relacion muchos a muchos entre empleado y equipo
 
 for id_empleado in id_empleado_list:
@@ -93,6 +105,8 @@ for id_empleado in id_empleado_list:
 
 with open('C:\\Users\\arsan\\OneDrive\\Documents\\queries_consultora\\query_empleados_por_equipo.sql', 'w', encoding = 'utf8') as f:
     f.write(query_empleados_por_equipo)
+
+# vamos a generar las queries para insertar datos en la tabla puente tecnologia por equipo:
 
 query_tecnologias_por_empleado = ''   # relacion muchos a muchos entre tecnologia y empleado
 
