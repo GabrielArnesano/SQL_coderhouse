@@ -2,7 +2,7 @@ USE consultora;
 
 DELIMITER //
 
-CREATE FUNCTION antiguedad (fecha_ingreso DATE) RETURNS INT
+CREATE FUNCTION antiguedad (fecha_ingreso DATE) RETURNS INT -- esta funcion recibe la fecha de ingreso de un empleado y calcula su antiguedad
 DETERMINISTIC
 BEGIN
     DECLARE annos_antiguedad INT;
@@ -18,10 +18,10 @@ CREATE FUNCTION actualizar_presupuesto (presupuesto int , porcentaje float, aume
 DETERMINISTIC 
 BEGIN 
 	DECLARE presupuesto_actualizado float;
-    if aumento = TRUE then
+    if aumento = TRUE then -- se suma el porcentaje al presupuesto
 		SET presupuesto_actualizado = presupuesto + presupuesto * porcentaje /100;
-	else 
-		SET presupuesto_actualizado = presupuesto * porcentaje / 100;
+	else -- se resta el porcentaje al presupuesto
+		SET presupuesto_actualizado = presupuesto - (presupuesto * porcentaje / 100);
 	END if;
 	RETURN presupuesto_actualizado;
 END
