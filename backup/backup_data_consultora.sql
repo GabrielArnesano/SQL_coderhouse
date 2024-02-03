@@ -1,3 +1,6 @@
+-- backup de tablas cliente, empleado, empleado_por_equipo, equipo, proyecto, proyecto_por_cliente, proyecto_por_equipo, tecnologia, tecnologia_por_empleado
+--backup de vistas vw_proyecto, vw_vencimiento_tareas
+
 CREATE DATABASE  IF NOT EXISTS `consultora` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `consultora`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
